@@ -1,0 +1,2 @@
+# spid-ims-discovery
+Discovery Service: servizio di integrazione delle soluzioni di accreditamento già presenti nella tua organizzazione con i nuovi provider (IdPs) accreditati presso AGID. Potrai consentire ai tuoi utenti di poter accedere ai servizi della tua amministrazione sia con il tuo “vecchio” sistema (garantendone l’accesso per i 2 anni previsti dall’attivazione di SPID) sia con i nuovi Identity Provider accreditati tramite SPID.
