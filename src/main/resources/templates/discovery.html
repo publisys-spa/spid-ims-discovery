@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="title=#{page.title.discovery}">
+
+<head th:substituteby="fragments/head :: head">
+</head>
+
+<body>
+
+<div class="container" id="page_top">
+
+    <th:block th:substituteby="fragments/header :: header"></th:block>
+
+    <div class="row row-container">
+
+        <br/>
+
+        <div id="session_active" class="row text-center hide">
+            <b>STAI PER ACCEDERE AL SERVIZIO SCELTO</b><br/>
+            La tua sessione di autenticazione &egrave; ancora attiva e tra <b><span id="countdown">5</span></b> secondi
+            verrai reindirizzato in automatico al servizio selezionato.<br/>
+            Se vuoi cambiare la tua identit&agrave;, scegli un altro provider in basso.
+            <br/><br/>
+        </div>
+
+        <br/>
+
+        <div class="col-md-4 col-xs-12 col-sm-4 text-center" th:if="${eidInfocert != ''}">
+            <img class="img-circle" th:src="@{/css/img/spid/spid140.jpg}" alt="Generic placeholder image" width="140"
+                 height="140"/>
+            <br/><br/>
+            <a href="#" class="italia-it-button italia-it-button-size-m button-spid"
+               spid-idp-button="#spid-idp-button-medium-get" aria-haspopup="true" aria-expanded="false">
+                <span class="italia-it-button-icon">
+                    <img th:src="@{/css/img/spid/spid-ico-circle-bb.svg}"
+                         onerror="this.src='/css/img/spid/spid-ico-circle-bb.png'; this.onerror=null;"
+                         alt=""/>
+                </span>
+                <span class="italia-it-button-text">Entra con SPID</span>
+            </a>
+            <div id="spid-idp-button-medium-get" class="spid-idp-button spid-idp-button-tip spid-idp-button-relative">
+                <ul id="spid-idp-list-medium-root-get" class="spid-idp-button-menu" aria-labelledby="spid-idp">
+                    <li class="spid-idp-button-link">
+                        <a th:unless="${forceAuthn}" th:attr="data-entityid=${eidInfocert}"
+                           th:href="@{${shibsso}(target=${target},authnContextComparison=${authnContextComparison},authnContextClassRef=${authnContextClassRef},entityID=${eidInfocert})}">
+                            <span class="spid-sr-only">Infocert ID</span>
+                            <img th:src="@{/css/img/spid/spid-idp-infocertid.svg}"
+                                 onerror="this.src='/css/img/spid/spid-idp-infocertid.png'; this.onerror=null;"
+                                 alt="Infocert ID"/>
+                        </a>
+                        <a th:if="${forceAuthn}" th:attr="data-entityid=${eidInfocert}"
+                           th:href="@{${shibsso}(target=${target},authnContextComparison=${authnContextComparison},authnContextClassRef=${authnContextClassRef},entityID=${eidInfocert},forceAuthn='true')}">
+                            <span class="spid-sr-only">Infocert ID</span>
+                            <img th:src="@{/css/img/spid/spid-idp-infocertid.svg}"
+                                 onerror="this.src='/css/img/spid/spid-idp-infocertid.png'; this.onerror=null;"
+                                 alt="Infocert ID"/>
+                        </a>
+                    </li>
+                    <li class="spid-idp-button-link">
+                        <a th:unless="${forceAuthn}" th:attr="data-entityid=${eidPoste}"
+                           th:href="@{${shibsso}(target=${target},authnContextComparison=${authnContextComparison},authnContextClassRef=${authnContextClassRef},entityID=${eidPoste})}">
+                            <span class="spid-sr-only">Poste ID</span>
+                            <img th:src="@{/css/img/spid/spid-idp-posteid.svg}"
+                                 onerror="this.src='/css/img/spid/spid-idp-posteid.png'; this.onerror=null;"
+                                 alt="Poste ID"/>
+                        </a>
+                        <a th:if="${forceAuthn}" th:attr="data-entityid=${eidPoste}"
+                           th:href="@{${shibsso}(target=${target},authnContextComparison=${authnContextComparison},authnContextClassRef=${authnContextClassRef},entityID=${eidPoste},forceAuthn='true')}">
+                            <span class="spid-sr-only">Poste ID</span>
+                            <img th:src="@{/css/img/spid/spid-idp-posteid.svg}"
+                                 onerror="this.src='/css/img/spid/spid-idp-posteid.png'; this.onerror=null;"
+                                 alt="Poste ID"/>
+                        </a>
+                    </li>
+                    <li class="spid-idp-button-link">
+                        <a th:unless="${forceAuthn}" th:attr="data-entityid=${eidTelecom}"
+                           th:href="@{${shibsso}(target=${target},authnContextComparison=${authnContextComparison},authnContextClassRef=${authnContextClassRef},entityID=${eidTelecom})}">
+                            <span class="spid-sr-only">Tim ID</span>
+                            <img th:src="@{/css/img/spid/spid-idp-timid.svg}"
+                                 onerror="this.src='/css/img/spid/spid-idp-timid.png'; this.onerror=null;"
+                                 alt="Tim ID"/>
+                        </a>
+                        <a th:if="${forceAuthn}" th:attr="data-entityid=${eidTelecom}"
+                           th:href="@{${shibsso}(target=${target},authnContextComparison=${authnContextComparison},authnContextClassRef=${authnContextClassRef},entityID=${eidTelecom},forceAuthn='true')}">
+                            <span class="spid-sr-only">Tim ID</span>
+                            <img th:src="@{/css/img/spid/spid-idp-timid.svg}"
+                                 onerror="this.src='/css/img/spid/spid-idp-timid.png'; this.onerror=null;"
+                                 alt="Tim ID"/>
+                        </a>
+                    </li>
+                    <li class="spid-idp-support-link">
+                        <a href="http://www.spid.gov.it">Maggiori info</a>
+                    </li>
+                    <li class="spid-idp-support-link">
+                        <a href="http://www.spid.gov.it/#registrati">Non hai SPID?</a>
+                    </li>
+                </ul>
+            </div>
+            <p>
+                <br/>
+                Accedi al servizio con autenticazione SPID. Potrai selezionare il provider da te scelto in fase di
+                registrazione per accedere ai servizi. Ricorda che con SPID potrai accedere a tutti i servizi della PA
+                nazionale.
+            </p>
+        </div><!-- /col-md-4 -->
+
+        <!-- IDP CUSTOM -->
+
+        <div class="col-md-4 col-xs-12 col-sm-4 text-center"
+             th:each="idp : ${idps.idpList}">
+            <img class="img-circle" th:src="@{${idp.headerImage}}"
+                 alt="Generic placeholder image" width="140" height="140"/>
+            <br/><br/>
+            <a href="#" class="italia-it-button italia-it-button-size-m button-spid button-custom"
+               th:classappend="${idp.buttonCssClass} ? ${idp.buttonCssClass} : 'button-custom'"
+               th:attr="spid-idp-button=${'#'+idp.alias+'-idp-button-medium-get'}"
+               aria-haspopup="true" aria-expanded="false">
+                <span class="italia-it-button-icon"><img th:src="@{${idp.labelImage}}" alt=""/></span>
+                <span class="italia-it-button-text" th:text="${idp.name}">IDP NAME</span>
+            </a>
+            <div th:id="${idp.alias+'-idp-button-medium-get'}" class="spid-idp-button spid-idp-button-tip spid-idp-button-relative">
+                <ul id="spid-idp-list-medium-root-get" class="spid-idp-button-menu" aria-labelledby="spid-idp">
+                    <li class="spid-idp-support-link">
+                        <a th:attr="data-entityid=${idp.entityId}"
+                           th:href="@{${shibsso}(target=${target},entityID=${idp.entityId})}"
+                           role="button">Accedi</a>
+                    </li>
+                    <li th:if="${idp.signupUrl != null and idp.signupUrl != ''}" class="spid-idp-support-link">
+                        <a th:href="@{${idp.signupUrl}}">
+                            Non hai le credenziali?
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>
+                <br/>
+                <th:block th:text="${idp.description}"></th:block>
+            </p>
+        </div><!-- /col-md-4 -->
+
+        <!-- DEBUG -->
+
+        <table id="attrtable" class="table hide">
+            <tr>
+                <td><b>Expiration:</b></td>
+                <td id="ss_expiration"></td>
+            </tr>
+            <tr>
+                <td><b>Client Address</b></td>
+                <td id="ss_client_address"></td>
+            </tr>
+            <tr>
+                <td><b>Protocol:</b></td>
+                <td id="ss_protocol"></td>
+            </tr>
+            <tr>
+                <td><b>Identity Provider:</b></td>
+                <td id="ss_identity_provider"></td>
+            </tr>
+            <tr>
+                <td><b>Authn Instant:</b></td>
+                <td id="ss_authn_instant"></td>
+            </tr>
+            <tr>
+                <td><b>Authncontext Class:</b></td>
+                <td id="ss_authncontext_class"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div><!-- container -->
+
+<th:block th:substituteby="fragments/footer :: footer"></th:block>
+
+<script>
+
+    var _debug = false;
+
+    //<![CDATA[
+
+    $.fn.countDown = function (settings, to) {
+        settings = $.extend({
+            startFontSize: "18px",
+            endFontSize: "18px",
+            duration: 1000,
+            startNumber: 10,
+            endNumber: 0,
+            callBack: function () {
+            }
+        }, settings);
+        return this.each(function () {
+
+            //where do we start?
+            if (!to && to != settings.endNumber) {
+                to = settings.startNumber;
+            }
+
+            //set the countdown to the starting number
+            $(this).text(to).css("fontSize", settings.startFontSize);
+
+            //loopage
+            $(this).animate({
+                fontSize: settings.endFontSize
+            }, settings.duration, "", function () {
+                if (to > settings.endNumber + 1) {
+                    $(this).css("fontSize", settings.startFontSize).text(to - 1).countDown(settings, to - 1);
+                }
+                else {
+                    settings.callBack(this);
+                }
+            });
+
+        });
+    };
+
+    function __se_redirect(url) {
+        $("#countdown").countDown({
+            startNumber: 5,
+            callBack: function (me) {
+                //$(window.location).attr('href', url);
+                alert("URL: " + url);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        $.getJSON("/Shibboleth.sso/Session",
+                //$.getJSON("/ims-discovery/shib/test",
+                function (data) {
+                    if (data && data.identity_provider) {
+                        $("#ss_expiration").html(data.expiration);
+                        $("#ss_client_address").html(data.client_address);
+                        $("#ss_protocol").html(data.protocol);
+                        $("#ss_identity_provider").html(data.identity_provider);
+                        $("#ss_authn_instant").html(data.authn_instant);
+                        $("#ss_authncontext_class").html(data.authncontext_class);
+
+                        var _url = $("a[data-entityid='" + data.identity_provider + "']").attr("href");
+
+                        if (_debug) {
+                            $("#attrtable").removeClass("hide");
+                            //alert(_url); data-entityid url
+                        }
+
+                        $("#session_active").removeClass("hide");
+                        __se_redirect(_url)
+                    }
+                });
+    });
+
+    //]]>
+
+</script>
+
+</body>
+</html>

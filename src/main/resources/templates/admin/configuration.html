@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="title=#{page.title.admin.configuration}">
+
+<head th:substituteby="fragments/head :: head">
+</head>
+
+<body>
+
+<div class="container" id="page_top">
+
+    <th:block th:substituteby="fragments/header :: header"></th:block>
+
+    <div class="row row-container">
+        <div class="col-lg-4 text-center">
+            <h2>Metadati</h2>
+            <p>
+                Effettua il reload dei Metadati dei Service Provider integrati con il Discovery.
+            </p>
+            <p>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#entitiesModal">
+                    Elenco
+                </button>
+
+                <a class="btn btn-default"
+                   th:href="@{/admin/config(action='metadata-reload')}"
+                   role="button">Ricarica</a>
+            </p>
+        </div><!-- /.col-lg-4 -->
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="entitiesModal" tabindex="-1" role="dialog" aria-labelledby="entitiesModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="entitiesModalLabel">Lista Entity ID</h4>
+                </div>
+
+                <table class="table table-striped">
+                    <tr>
+                        <th>EntityID</th>
+                    </tr>
+                    <tr th:each="e : ${entities}">
+                        <td th:text="${e.entityId}"></td>
+                    </tr>
+                </table>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- container -->
+
+<th:block th:substituteby="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

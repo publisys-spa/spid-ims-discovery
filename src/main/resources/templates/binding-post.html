@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="title=#{page.title.binding.post}">
+
+<head th:substituteby="fragments/head :: head">
+</head>
+
+<body onload="document.forms[0].submit();">
+
+
+<div class="container" id="page_top">
+
+    <th:block th:substituteby="fragments/header :: header"></th:block>
+
+    <div class="row row-container">
+
+        <br/><br/>
+
+        Stai per essere re-indirizzato al Servizio. Invio attributi in corso...
+
+        <noscript>
+            <p>
+                <strong>Note:</strong>
+                Dal momento che il tuo browser non supporta JavaScript, &egrave; necessario
+                premere il pulsante <b>Continua</b> per procedere.
+            </p>
+        </noscript>
+
+        <form method="POST" th:action="@{${wbsso_acs_endpoint}}">
+            <div>
+                <input type="hidden" name="SAMLResponse" th:value="${SAMLResponse}"/>
+                <input type="hidden" name="RelayState" th:value="${RelayState}"/>
+            </div>
+            <noscript>
+                <div>
+                    <input type="submit" value="Continua"/>
+                </div>
+            </noscript>
+        </form>
+
+<!--
+        <table class="table">
+            <tr>
+                <th>Chiave</th>
+                <th>Valore</th>
+            </tr>
+            <tr>
+                <td>SAMLResponse</td>
+                <td th:text="${SAMLResponse}"></td>
+            </tr>
+            <tr>
+                <td>requestBinding</td>
+                <td th:text="${requestBinding}"></td>
+            </tr>
+            <tr>
+                <td>RelayState</td>
+                <td th:text="${RelayState}"></td>
+            </tr>
+            <tr>
+                <td>wbsso_acs_endpoint</td>
+                <td th:text="${wbsso_acs_endpoint}"></td>
+            </tr>
+        </table>
+-->
+
+    </div>
+
+
+</div><!-- container -->
+
+<th:block th:substituteby="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

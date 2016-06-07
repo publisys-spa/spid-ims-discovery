@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="title=#{page.title.messages.errors}">
+
+<head th:substituteby="fragments/head :: head">
+</head>
+
+<body>
+
+<div class="container" id="page_top">
+
+    <th:block th:substituteby="fragments/header :: header"></th:block>
+
+    <div class="row row-container">
+
+        <div class="col-md-6 hidden-sm hidden-xs text-center">
+            <div class="thumb_container clearfix">
+                <img alt="Attenzione" th:src="@{/css/img/error_1.png}" class="img-responsive" style="display: inline;"/>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-xs-12 col-sm-12">
+            <div class="box_text box_text_large clearfix">
+                <h2 class="title_large">Ops...!</h2>
+                <p>
+                    Non &egrave; possibile effettuare l'accesso in questo momento.
+                    <br/>
+                    Si prega di riprovare pi&ugrave; tardi.
+                </p>
+            </div>
+
+            <div th:if="${message}" class="alert alert-warning" role="alert">
+                <th:block th:text="${message}"></th:block>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><!-- container -->
+
+<th:block th:substituteby="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

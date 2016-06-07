@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idps>
+    <idp alias="idp-1">
+        <entity-id>idp-1-eid</entity-id>
+        <name>IdP 1</name>
+        <description>
+            description 1
+        </description>
+        <signup-url>https://www.idp.it/registrazione</signup-url>
+        <header-image>/css/img/spid/publisys140.png</header-image>
+        <label-image>/css/img/spid/publisys.png</label-image>
+        <button-css-class>button-custom</button-css-class>
+    </idp>
+    <idp alias="idp-2">
+        <entity-id>idp-2-eid</entity-id>
+        <name>IdP 2</name>
+        <description>
+            description 2
+        </description>
+        <signup-url></signup-url>
+        <header-image>/css/img/spid/publisys140.png</header-image>
+        <label-image>/css/img/spid/publisys.png</label-image>
+        <button-css-class>button-custom</button-css-class>
+    </idp>
+</idps>

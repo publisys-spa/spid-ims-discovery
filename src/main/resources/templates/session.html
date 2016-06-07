@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="title=#{page.title.session}">
+
+<head th:substituteby="fragments/head :: head">
+</head>
+
+<body>
+
+<div class="container" id="page_top">
+
+    <th:block th:substituteby="fragments/header :: header"></th:block>
+
+    <div class="row row-container">
+
+        <br/><br/>
+
+        <table class="table">
+            <tr>
+                <td><b>Expiration:</b></td>
+                <td id="ss_expiration"></td>
+            </tr>
+            <tr>
+                <td><b>Client Address</b></td>
+                <td id="ss_client_address"></td>
+            </tr>
+            <tr>
+                <td><b>Protocol:</b></td>
+                <td id="ss_protocol"></td>
+            </tr>
+            <tr>
+                <td><b>Identity Provider:</b></td>
+                <td id="ss_identity_provider"></td>
+            </tr>
+            <tr>
+                <td><b>Authn Instant:</b></td>
+                <td id="ss_authn_instant"></td>
+            </tr>
+            <tr>
+                <td><b>Authncontext Class:</b></td>
+                <td id="ss_authncontext_class"></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div><!-- container -->
+
+<th:block th:substituteby="fragments/footer :: footer"></th:block>
+
+<script>
+    $(document).ready(function () {
+
+        $.getJSON("/Shibboleth.sso/Session",
+                function (data) {
+                    $("#ss_expiration").html(data.expiration);
+                    $("#ss_client_address").html(data.client_address);
+                    $("#ss_protocol").html(data.protocol);
+                    $("#ss_identity_provider").html(data.identity_provider);
+                    $("#ss_authn_instant").html(data.authn_instant);
+                    $("#ss_authncontext_class").html(data.authncontext_class);
+                });
+
+    });
+</script>
+
+</body>
+</html>

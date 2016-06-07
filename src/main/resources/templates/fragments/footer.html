@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+
+<th:block th:fragment="footer">
+
+    <footer id="footer" class="hidden-print" tabindex="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10 col-sm-10 col-md-12">
+                    <p class="footer__title h3" th:utext="#{page.footer.copy}">&copy; 2016 Publisys S.p.A.</p>
+                    <p> Il portale &egrave; ottimizzato per
+                        <a href="http://windows.microsoft.com/it-IT/internet-explorer/products/ie/home">
+                            Internet Explorer
+                        </a>,
+                        <a href="http://www.mozilla.org/it/firefox/new/">Mozilla Firefox</a> e
+                        <a href="https://www.google.com/chrome?hl=it">Google Chrome</a>.
+                        Si consiglia di utilizzare le versioni pi&ugrave; aggiornate di tali browser per una navigazione
+                        ottimale. </p>
+                </div>
+            </div>
+            <div class="row">
+                <ul class="col-xs-12 footer__links clearfix">
+                    <li><a href="#" title="privacy policy">Privacy</a></li>
+                    <li><a href="#" title="note legali">Note legali</a></li>
+                    <li><a href="#" title="credits">Contatti</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#page_top" title="torna all'inizio del contenuto" class="scrollto_top sr-only"><span></span></a>
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/combined.js}"></script>
+    <script th:src="@{/js/spid-sp-access-button.min.js}"></script>
+
+    <script>
+        $(document).ready(function () {
+            var rootList = $("#spid-idp-list-small-root-get");
+            var idpList = rootList.children(".spid-idp-button-link");
+            var lnkList = rootList.children(".spid-idp-support-link");
+            while (idpList.length) {
+                rootList.append(idpList.splice(Math.floor(Math.random() * idpList.length), 1)[0]);
+            }
+            rootList.append(lnkList);
+        });
+
+        $(document).ready(function () {
+            var rootList = $("#spid-idp-list-medium-root-get");
+            var idpList = rootList.children(".spid-idp-button-link");
+            var lnkList = rootList.children(".spid-idp-support-link");
+            while (idpList.length) {
+                rootList.append(idpList.splice(Math.floor(Math.random() * idpList.length), 1)[0]);
+            }
+            rootList.append(lnkList);
+        });
+
+        $(document).ready(function () {
+            var rootList = $("#spid-idp-list-large-root-get");
+            var idpList = rootList.children(".spid-idp-button-link");
+            var lnkList = rootList.children(".spid-idp-support-link");
+            while (idpList.length) {
+                rootList.append(idpList.splice(Math.floor(Math.random() * idpList.length), 1)[0]);
+            }
+            rootList.append(lnkList);
+        });
+
+        $(document).ready(function () {
+            var rootList = $("#spid-idp-list-xlarge-root-get");
+            var idpList = rootList.children(".spid-idp-button-link");
+            var lnkList = rootList.children(".spid-idp-support-link");
+            while (idpList.length) {
+                rootList.append(idpList.splice(Math.floor(Math.random() * idpList.length), 1)[0]);
+            }
+            rootList.append(lnkList);
+        });
+
+        $(document).ready(function () {
+            var rootList = $("#spid-idp-list-small-root-post");
+            var idpList = rootList.children(".spid-idp-button-link");
+            var lnkList = rootList.children(".spid-idp-support-link");
+            while (idpList.length) {
+                rootList.append(idpList.splice(Math.floor(Math.random() * idpList.length), 1)[0]);
+            }
+            rootList.append(lnkList);
+        });
+
+        $(document).ready(function () {
+            var rootList = $("#spid-idp-list-medium-root-post");
+            var idpList = rootList.children(".spid-idp-button-link");
+            var lnkList = rootList.children(".spid-idp-support-link");
+            while (idpList.length) {
+                rootList.append(idpList.splice(Math.floor(Math.random() * idpList.length), 1)[0]);
+            }
+            rootList.append(lnkList);
+        });
+
+        $(document).ready(function () {
+            var rootList = $("#spid-idp-list-large-root-post");
+            var idpList = rootList.children(".spid-idp-button-link");
+            var lnkList = rootList.children(".spid-idp-support-link");
+            while (idpList.length) {
+                rootList.append(idpList.splice(Math.floor(Math.random() * idpList.length), 1)[0]);
+            }
+            rootList.append(lnkList);
+        });
+
+        $(document).ready(function () {
+            var rootList = $("#spid-idp-list-xlarge-root-post");
+            var idpList = rootList.children(".spid-idp-button-link");
+            var lnkList = rootList.children(".spid-idp-support-link");
+            while (idpList.length) {
+                rootList.append(idpList.splice(Math.floor(Math.random() * idpList.length), 1)[0]);
+            }
+            rootList.append(lnkList);
+        });
+    </script>
+
+</th:block>
+
+</body>
+</html>

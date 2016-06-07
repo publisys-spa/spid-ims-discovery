@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="title=#{page.title.logout}">
+
+<head th:substituteby="fragments/head :: head">
+</head>
+
+<body>
+
+<div class="container" id="page_top">
+
+    <th:block th:substituteby="fragments/header :: header"></th:block>
+
+    <div class="row row-container">
+
+        <br/><br/>
+
+        <div class="row text-center">
+
+            Hai effettuato il logout dal sistema SPID.<br/>
+            Per accedere con un altro account si prega di chiudere completamente il proprio browser.
+        </div>
+
+        <br/>
+
+    </div>
+
+</div><!-- container -->
+
+<th:block th:substituteby="fragments/footer :: footer"></th:block>
+
+</body>
+</html>

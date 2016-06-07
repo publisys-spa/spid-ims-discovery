@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+
+<th:block th:fragment="header">
+
+    <header class="navbar navbar-default navbar-fixed-top hidden-print" id="navbar">
+        <div class="navbar-header  container">
+            <div class="row">
+                <div class="navbar__title_container">
+                    <h1>
+                        <img class="navbar_banner__logo"
+                             th:src="@{#{icon.header.logo}}"
+                             th:alt="#{label.header.logo}"/>
+                        <a>
+                            <span th:text="#{label.header.ente}">Publisys S.p.A.</span>
+                        </a>
+                    </h1>
+                </div>
+            </div><!-- row -->
+        </div><!-- navbar header container -->
+    </header>
+
+</th:block>
+
+</body>
+</html>
